@@ -18,7 +18,7 @@ jobs:
             build-script: ./build-linux.sh
           - platform: windows
             runs-on: windows-latest
-            build-script: .\build-windows.ps
+            build-script: .\build-windows.ps1
 
     runs-on: ${{ matrix.runs-on }}
 
