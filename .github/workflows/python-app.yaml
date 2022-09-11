@@ -11,14 +11,14 @@ jobs:
     name: Build for ${{ matrix.platform }}
     strategy:
       matrix:
-        platform: [linux, windows ]
+        platform: [linux, windows]
         include:
           - platform: linux
             runs-on: ubuntu-latest
             build-script: ./build-linux.sh
           - platform: windows
             runs-on: windows-latest
-            build-script: build-windows.ps
+            build-script: .\build-windows.ps
 
     runs-on: ${{ matrix.runs-on }}
 
