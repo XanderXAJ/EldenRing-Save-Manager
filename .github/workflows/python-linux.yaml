@@ -1,4 +1,4 @@
-name: Linux Python
+name: Build Linux
 on:
   push:
     branches:
@@ -17,4 +17,12 @@ jobs:
           python-version: '3.10'
       - name: Install Poetry
         uses: snok/install-poetry@v1
-      - run: ./build-linux.sh
+      - name: Install Poetry dependencies
+        run: poetry install
+      - name: Build Linux portable app
+        run: ./build-linux.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-app
+          path: dist/
