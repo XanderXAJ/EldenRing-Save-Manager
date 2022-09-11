@@ -12,16 +12,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
           cache: poetry
+
       - name: Install Poetry dependencies
         run: poetry install
+
       - name: Build Linux portable app
         run: ./build-linux.sh
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
